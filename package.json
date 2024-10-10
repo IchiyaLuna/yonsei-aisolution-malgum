@@ -1,7 +1,8 @@
 {
   "name": "yonsei-aisolution-malgum",
+  "private": true,
   "packageManager": "yarn@4.5.0",
-  "packages": [
+  "workspaces": [
     "packages/backend",
     "packages/frontend-expo",
     "packages/frontend-next"

@@ -1,0 +1,12 @@
+{
+  "name": "yonsei-aisolution-malgum",
+  "packageManager": "yarn@4.5.0",
+  "packages": [
+    "packages/backend",
+    "packages/frontend-expo",
+    "packages/frontend-next"
+  ],
+  "devDependencies": {
+    "lerna": "^8.1.8"
+  }
+}

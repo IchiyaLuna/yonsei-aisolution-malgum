@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/lerna/lerna/main/schemas/lerna-schema.json",
+  "packages": [
+    "packages/backend",
+    "packages/frontend-expo",
+    "packages/frontend-next"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}

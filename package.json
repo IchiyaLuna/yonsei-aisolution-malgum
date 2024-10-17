@@ -5,9 +5,11 @@
   "workspaces": [
     "packages/backend",
     "packages/frontend-expo",
-    "packages/frontend-next"
+    "packages/frontend-next",
+    "packages/common/libraries",
+    "packages/common/components"
   ],
-  "devDependencies": {
+  "dependencies": {
     "lerna": "^8.1.8"
   }
 }

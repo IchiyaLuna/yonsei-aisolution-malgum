@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 type Props = {
   message: Message;
@@ -6,6 +6,8 @@ type Props = {
   isMessageTop: boolean;
   isMessageBottom: boolean;
 };
+
+const bubbleRadius = 20;
 
 export function MessageBubble({
   message,
@@ -16,56 +18,98 @@ export function MessageBubble({
   return (
     <View
       style={[
-        styles.chatBubbleContainer,
-        isOwnMessage
-          ? styles.sentBubbleContainer
-          : styles.receivedBubbleContainer,
-        isMessageTop && styles.topBubbleContainer,
-        isMessageBottom && styles.bottomBubbleContainer,
+        styles.chatContainer,
+        isOwnMessage ? styles.sentChatContainer : styles.receivedChatContainer,
       ]}
     >
-      <Text
-        style={[
-          styles.chatBubbleText,
-          isOwnMessage ? styles.sentBubbleText : styles.receivedBubbleText,
-        ]}
-      >
-        {message.data.text}
-      </Text>
+      {isOwnMessage ? null : (
+        <>
+          <Image
+            source={require('@/assets/images/profile.png')} // 이미지 경로
+            style={styles.image}
+          />
+        </>
+      )}
+      <View style={styles.bodyContainer}>
+        {isOwnMessage ? null : <Text style={styles.nameText}>맑음이</Text>}
+        <View
+          style={[
+            styles.chatBubbleContainer,
+            isOwnMessage
+              ? styles.sentBubbleContainer
+              : styles.receivedBubbleContainer,
+            isMessageTop && styles.topBubbleContainer,
+            isMessageBottom && styles.bottomBubbleContainer,
+          ]}
+        >
+          <Text
+            style={[
+              styles.chatBubbleText,
+              isOwnMessage ? styles.sentBubbleText : styles.receivedBubbleText,
+            ]}
+          >
+            {message.data.text}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  chatContainer: {
+    width: '90%',
+  },
+  sentChatContainer: {
+    alignSelf: 'flex-end',
+    flexDirection: 'row-reverse',
+  },
+  receivedChatContainer: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+  },
+  image: {
+    aspectRatio: 1,
+    width: 50,
+    borderRadius: 50, // 원형으로 만들기
+  },
+  bodyContainer: {
+    flexShrink: 1,
+    marginHorizontal: 8,
+  },
+  nameText: {
+    marginBottom: 8,
+    fontSize: 16,
+    fontWeight: '500',
+  },
   chatBubbleContainer: {
-    maxWidth: '90%',
     padding: 10,
-    borderRadius: 20,
+    borderRadius: bubbleRadius,
     justifyContent: 'center',
   },
   sentBubbleContainer: {
-    borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderTopLeftRadius: bubbleRadius,
+    borderBottomLeftRadius: bubbleRadius,
     alignSelf: 'flex-end',
-    backgroundColor: '#ff99a8',
+    backgroundColor: '#789DBC',
   },
   receivedBubbleContainer: {
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
+    borderTopRightRadius: bubbleRadius,
+    borderBottomRightRadius: bubbleRadius,
     alignSelf: 'flex-start',
-    backgroundColor: '#e6e6e6',
+    backgroundColor: '#f1f1f1',
   },
   topBubbleContainer: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: bubbleRadius,
+    borderTopRightRadius: bubbleRadius,
   },
   bottomBubbleContainer: {
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: bubbleRadius,
+    borderBottomRightRadius: bubbleRadius,
   },
   chatBubbleText: {
     fontSize: 16,
-    lineHeight: 20,
+    lineHeight: 22,
   },
   sentBubbleText: {
     color: 'white',

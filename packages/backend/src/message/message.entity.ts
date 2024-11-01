@@ -21,10 +21,10 @@ export class Message {
   conversation: Conversation;
 
   @Column()
-  sender_id: string;
+  role: string;
 
-  @Column('json')
-  data: { text: string | undefined };
+  @Column()
+  content: string;
 
   @CreateDateColumn({ default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;

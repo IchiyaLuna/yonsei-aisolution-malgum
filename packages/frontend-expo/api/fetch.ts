@@ -10,7 +10,6 @@ export async function fetchData(
     method,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
       ...headers,
     },
     body,

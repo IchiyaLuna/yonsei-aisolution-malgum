@@ -4,8 +4,8 @@ export const Networks: {
   port: number;
 } = {
   protocol: 'http',
-  // hostname: '172.26.130.57',
-  hostname: '192.168.219.102',
+  hostname: '172.26.124.35',
+  // hostname: '192.168.219.102',
   port: 3000,
 };
 

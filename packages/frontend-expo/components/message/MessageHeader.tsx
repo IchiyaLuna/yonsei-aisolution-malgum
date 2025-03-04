@@ -52,11 +52,7 @@ export const MessageHeader = forwardRef<HeaderRef>(({}: Props, ref) => {
   // Render
   return focused ? (
     <View style={styles.headerContainer}>
-      <CameraView
-        ref={cameraRef}
-        facing={'front'}
-        style={{ display: 'none' }}
-      />
+      <CameraView ref={cameraRef} facing={'front'} style={{}} />
       <Text>감정 인식 사용 중</Text>
     </View>
   ) : null;

@@ -1271,18 +1271,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@common/components@workspace:packages/common/components":
-  version: 0.0.0-use.local
-  resolution: "@common/components@workspace:packages/common/components"
-  languageName: unknown
-  linkType: soft
-
-"@common/libraries@workspace:packages/common/libraries":
-  version: 0.0.0-use.local
-  resolution: "@common/libraries@workspace:packages/common/libraries"
-  languageName: unknown
-  linkType: soft
-
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"

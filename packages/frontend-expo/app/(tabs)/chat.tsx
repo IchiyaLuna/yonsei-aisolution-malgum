@@ -107,8 +107,8 @@ export default function ChatScreen() {
           ...prevState,
         ]);
 
-        const photo = await headerRef.current.getPhoto();
-        if (!photo) return;
+        // const photo = await headerRef.current.getPhoto();
+        // if (!photo) return;
 
         setMessages((prevState) => {
           const targetIndex = prevState.findIndex(
@@ -129,11 +129,11 @@ export default function ChatScreen() {
 
         const formData = new FormData();
 
-        formData.append('image', {
-          uri: photo.uri,
-          type: 'image/jpeg',
-          name: 'test.jpg',
-        } as unknown as Blob);
+        // formData.append('image', {
+        //   uri: photo.uri,
+        //   type: 'image/jpeg',
+        //   name: 'test.jpg',
+        // } as unknown as Blob);
 
         const result = await fetchData(
           'POST',
